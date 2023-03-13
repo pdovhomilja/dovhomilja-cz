@@ -37,35 +37,36 @@ const Navbar = (props: Props) => {
             <Bars3Icon className="h-6 w-6 text-white opacity-50  md:hidden" />
           )}
         </div>
-
-        <div className="hidden md:flex grow justify-end">
-          <Link className="flex link" href="/about">
-            <p className="text-white px-1">01.</p>
-            <p>About</p>
-          </Link>
-          <Link className="flex link" href="/experience">
-            <p className="text-white px-1">02.</p>
-            <p>Experience</p>
-          </Link>
-          <Link className="flex link" href="/work">
-            <p className="text-white px-1">03.</p>
-            <p>Work</p>
-          </Link>
-          <Link className="flex link" href="/blog">
-            <p className="text-white px-1">04.</p>
-            <p>Blog</p>
-          </Link>
-          <Link className="flex link" href="/contact">
-            <p className="text-white px-1">05.</p>
-            <p>Contact</p>
-          </Link>
-          <Link
-            className="flex justify-center items-center rounded-md border px-2 text-xs "
-            href="/"
-          >
-            Resume
-          </Link>
-        </div>
+        {process.env.NEXT_PUBLIC_PRODUCTION === "true" && (
+          <div className="hidden md:flex grow justify-end">
+            <Link className="flex link" href="/about">
+              <p className="text-white px-1">01.</p>
+              <p>About</p>
+            </Link>
+            <Link className="flex link" href="/experience">
+              <p className="text-white px-1">02.</p>
+              <p>Experience</p>
+            </Link>
+            <Link className="flex link" href="/work">
+              <p className="text-white px-1">03.</p>
+              <p>Work</p>
+            </Link>
+            <Link className="flex link" href="/blog">
+              <p className="text-white px-1">04.</p>
+              <p>Blog</p>
+            </Link>
+            <Link className="flex link" href="/contact">
+              <p className="text-white px-1">05.</p>
+              <p>Contact</p>
+            </Link>
+            <Link
+              className="flex justify-center items-center rounded-md border px-2 text-xs "
+              href="/"
+            >
+              Resume
+            </Link>
+          </div>
+        )}
       </div>
       <div className="">
         {isOpen && process.env.NEXT_PUBLIC_PRODUCTION === "true" && (
