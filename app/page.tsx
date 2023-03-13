@@ -1,91 +1,48 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
+    <main>
+      <div>
+        <p className="text-xl opacity-30 pb-5"> Hi, my name is,</p>
+        <h1 className="text-3xl text-white">Pavel Dovhomilja</h1>
+        <p className="opacity-50 text-justify py-5 text-xs md:text-xl">
+          I am an entrepreneur who has founded several tech startups, each with
+          its unique challenges and rewards. Among my many accomplishments, I am
+          most proud of my successful M&A process, where I played a key role as
+          a co-founder in acquiring a major company and subsequently selling my
+          share to my co-founder. This deal not only required business acumen
+          but also the ability to navigate complex negotiations and secure a
+          favorable outcome for all involved.
+          <br />
+          <br />
+          In addition to my business expertise, I have a strong technical
+          background. As a Linux admin, full-stack developer, and DevOps
+          engineer, I am skilled in utilizing open-source technologies to drive
+          innovation and growth. I have a passion for finding the best ways to
+          leverage open-source tools and continuously seek to expand my
+          knowledge in this area.
+          <br />
+          <br />
+          My skills extend beyond the technical realm, as I am also highly
+          skilled in managing IT companies. I have a proven track record of
+          building and leading successful teams that are capable of delivering
+          high-quality products and services. I believe that effective
+          management is crucial to the success of any business, and I take great
+          pride in my ability to lead and inspire teams to achieve their full
+          potential.
+          <br />
+          <br />
+          Overall, I am a well-rounded entrepreneur with both technical and
+          business skills. I am passionate about utilizing open-source
+          technologies to drive innovation and growth, and I have a proven
+          ability to lead and manage IT companies successfully. I am committed
+          to continued learning and growth, and I look forward to the challenges
+          and opportunities that lie ahead.
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
       </div>
     </main>
-  )
+  );
 }
