@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       host: "mail.isfgroup.cz",
       auth: {
         user: "smtp@softbase.cz",
-        pass: process.env.password,
+        pass: process.env.SMTP_PASSWORD,
       },
       secure: true,
     });
@@ -54,6 +54,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error: any) {
-    NextResponse.json({ error: error.message });
+    return NextResponse.json({ error: error.message });
   }
 }
