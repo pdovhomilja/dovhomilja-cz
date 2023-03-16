@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { authOptions } from "./auth/[...nextauth]";
 
 export default async function handler(req: NextRequest, res: NextResponse) {
-  const session = await getServerSession(req, res, authOptions);
+  /*   const session = await getServerSession(req, res, authOptions);
   const Bearer = req.headers.authorization;
 
   if (session || Bearer === process.env.N8N_TOKEN) {
@@ -19,5 +19,6 @@ export default async function handler(req: NextRequest, res: NextResponse) {
   } else {
     // Not Signed in
     return res.status(401).json({ error: "User not Authenticated" });
-  }
+  } */
+  return NextResponse.json({ message: "Hello from protected route!" });
 }
