@@ -8,7 +8,7 @@ export default function Home() {
       <div>
         <p className="text-xl opacity-30 pb-5"> Hi, my name is,</p>
         <h1 className="text-3xl text-white">Pavel Dovhomilja</h1>
-        <p className="opacity-50 text-justify py-5 text-xs md:text-xl">
+        <p className="opacity-50 text-justify py-5 text-xs md:text-lg">
           I am an entrepreneur who has founded several tech startups, each with
           its unique challenges and rewards. Among my many accomplishments, I am
           most proud of my successful M&A process, where I played a key role as

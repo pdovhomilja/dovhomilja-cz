@@ -10,8 +10,6 @@ type Props = {};
 const Navbar = (props: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(process.env.NEXT_PUBLIC_PRODUCTION, "PRODUCTION - Navbar");
-
   const handelClick = () => {
     setIsOpen(!isOpen);
   };
