@@ -1,24 +1,20 @@
-"use client";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-type Props = {};
-
-const Admin = (props: Props) => {
-  const { data: session } = useSession();
-  if (session) {
+export default async function Test() {
+  const session = await getServerSession(authOptions);
+  if (!session)
     return (
-      <>
-        Signed in as {session.user?.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
-      </>
+      <div>
+        <h1> Not Authenticated</h1>
+      </div>
     );
-  }
-  return (
-    <>
-      Not signed in <br />
-      <button onClick={() => signIn()}>Sign in</button>
-    </>
-  );
-};
 
-export default Admin;
+  return (
+    <div>
+      <h1> Admin</h1>
+      <p> Welcome {session.user?.name}</p>
+      <pre>{JSON.stringify(session, null, 2)}</pre>;
+    </div>
+  );
+}

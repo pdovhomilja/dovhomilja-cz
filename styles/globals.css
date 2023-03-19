@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply bg-[rgb(15,23,42)] h-full overflow-x-hidden;
+}
+
+#__next {
+  @apply h-full;
+}
+
+html {
+  @apply h-full;
+}
+
 @layer components {
   .link {
     @apply text-xs p-2 text-slate-400;
