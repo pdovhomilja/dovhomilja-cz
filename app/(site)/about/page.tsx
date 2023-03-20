@@ -1,3 +1,4 @@
+import Title from "@/components/Title";
 import Image from "next/image";
 import React from "react";
 
@@ -5,8 +6,8 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <div className="flex flex-col w-full px-10">
-      <h1 className="text-3xl pb-5">About me</h1>
+    <div className="w-full h-full  px-10">
+      <Title title="About me" />
       <div className="flex flex-row space-x-5 justify-center w-full">
         <div className=" w-52 border p-2 rounded-md z-0">
           <Image
