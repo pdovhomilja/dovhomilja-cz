@@ -3,6 +3,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function Test() {
   const session = await getServerSession(authOptions);
+  console.log(session, "session");
   if (!session)
     return (
       <div>

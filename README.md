@@ -10,5 +10,7 @@ Tech stack:
 
 You must set up .env.local with
 DATABASE_URL="mongodb+srv://<userName>:<userPass>@portfolio.3wr0mtz.mongodb.net/<dbName>"
+
 NEXTAUTH_JWT_SECRET="someJWTsecret"
+
 NEXTAUTH_SECRET="some randome secret"
