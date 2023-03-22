@@ -4,9 +4,7 @@ import Title from "@/components/Title";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
-type Props = {
-  session: any;
-};
+type Props = {};
 
 const CreatePostx = async (props: Props) => {
   const session = await getServerSession(authOptions);
