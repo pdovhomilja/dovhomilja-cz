@@ -1,7 +1,5 @@
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import "@/styles/globals.css";
-import { signIn } from "next-auth/react";
-//import Provider from "../Provider";
 
 export const metadata = {
   title: "Admin",
