@@ -46,7 +46,6 @@ export async function POST(request: NextRequest) {
           console.error(err);
           reject(err);
         } else {
-          console.log(info);
           resolve(info);
         }
       });

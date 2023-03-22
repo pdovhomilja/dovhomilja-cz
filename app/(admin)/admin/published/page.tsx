@@ -19,7 +19,7 @@ const Drafts = async (props: Props) => {
 
   return (
     <div>
-      <Title title="Drafts" />
+      <Title title="Published" />
       <ShowDrafts status="published" admin="true" />
     </div>
   );

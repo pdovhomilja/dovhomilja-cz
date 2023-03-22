@@ -13,7 +13,5 @@ export default async function handler(
     },
   });
 
-  console.log(drafts);
-
   return res.status(200).json(drafts);
 }

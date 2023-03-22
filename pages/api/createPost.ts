@@ -16,7 +16,6 @@ export default async function handler(
 
   if (session) {
     try {
-      console.log(req.body, "req.body");
       const { title, content, authorEmail } = req.body;
 
       const result = await prisma.post.create({

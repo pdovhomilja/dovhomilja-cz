@@ -3,7 +3,6 @@ import React from "react";
 import useSWR from "swr";
 import fetcher from "@/pages/api/fetcher";
 import Title from "../Title";
-import { useRouter } from "next/navigation";
 
 type Props = {
   status: string;
@@ -25,10 +24,6 @@ const ShowPosts = (props: Props) => {
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
   });
-
-  console.log(props.status, "status");
-
-  const router = useRouter();
 
   const handelDelete = async (id: string) => {
     try {
@@ -58,8 +53,22 @@ const ShowPosts = (props: Props) => {
     }
   };
 
+  const handelDisable = async (id: string) => {
+    try {
+      const body = { id };
+      await fetch(`/api/posts/disablePost`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      mutate({ revalidate: true });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (error) return <div>Failed to load drafts</div>;
-  if (!drafts) return <div>Loading drafts ...</div>;
+  if (!drafts) return <div>Loading {props.status} ...</div>;
 
   return (
     <div className="flex flex-col gap-5">
@@ -84,10 +93,20 @@ const ShowPosts = (props: Props) => {
                 }
               >
                 <div
-                  className="btn btn-outline"
+                  className={
+                    props.status === "published" ? `hidden` : `btn btn-outline`
+                  }
                   onClick={() => handelAllow(draft.id)}
                 >
                   Allow
+                </div>
+                <div
+                  className={
+                    props.status === "drafts" ? `hidden` : `btn btn-outline`
+                  }
+                  onClick={() => handelDisable(draft.id)}
+                >
+                  Disable
                 </div>
                 <div
                   className="btn btn-outline"
@@ -98,7 +117,9 @@ const ShowPosts = (props: Props) => {
               </div>
             </div>
           ))
-        : "There is no draft"}
+        : props.status === "drafts"
+        ? "There is no drafts"
+        : "There is no published posts"}
     </div>
   );
 };

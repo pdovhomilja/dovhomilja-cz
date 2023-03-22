@@ -12,7 +12,7 @@ export default async function handler(
       id: req.body.id,
     },
     data: {
-      published: true,
+      published: false,
     },
   });
 
