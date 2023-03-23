@@ -36,7 +36,7 @@ const Navbar = (props: Props) => {
           )}
         </div>
         {process.env.NEXT_PUBLIC_PRODUCTION === "true" && (
-          <div className="hidden md:flex grow justify-end">
+          <div className="hidden md:flex grow justify-end gap-2">
             <Link className="flex link" href="/about">
               <p className="text-white px-1">01.</p>
               <p>About</p>

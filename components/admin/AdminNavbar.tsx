@@ -30,6 +30,9 @@ const AdminNavbar = (props: Props) => {
           <Link className="btn btn-outline" href="/admin/published">
             Published
           </Link>
+          <Link className="btn btn-outline" href="/admin/users">
+            Users
+          </Link>
         </div>
         <div className="flex grow items-center justify-end">
           <button className="btn btn-outline" onClick={() => signOut()}>

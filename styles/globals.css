@@ -16,7 +16,7 @@ html {
 
 @layer components {
   .link {
-    @apply text-xs p-2 text-slate-400;
+    @apply text-xs p-2 text-slate-400 hover:border rounded-md;
   }
 
   .timeline-img {

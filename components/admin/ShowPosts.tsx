@@ -3,6 +3,7 @@ import React from "react";
 import useSWR from "swr";
 import fetcher from "@/pages/api/fetcher";
 import Title from "../Title";
+import Link from "next/link";
 
 type Props = {
   status: string;
@@ -77,10 +78,13 @@ const ShowPosts = (props: Props) => {
             <div
               key={draft.id}
               className="flex
-     gap-5 border-2 border-gray-600 rounded-md shadow-md"
+     gap-5 border-2 border-gray-600 rounded-md shadow-md px-2"
             >
               <div className="w-full p-5">
-                <Title title={draft.title} />
+                <Link href={`/blog/${draft.id}`}>
+                  <Title title={draft.title} />
+                </Link>
+
                 <p>{draft.id}</p>
 
                 <p>{draft.content}</p>
