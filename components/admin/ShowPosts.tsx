@@ -71,13 +71,13 @@ const ShowPosts = (props: Props) => {
   if (!drafts) return <div>Loading {props.status} ...</div>;
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-wrap mx-auto justify-center gap-5">
       {drafts.length > 0
         ? drafts?.map((draft: any) => (
             <div
               key={draft.id}
               className="flex
-     gap-5"
+     gap-5 border-2 border-gray-600 rounded-md shadow-md"
             >
               <div className="w-full p-5">
                 <Title title={draft.title} />

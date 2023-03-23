@@ -6,6 +6,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import TextArea from "@/components/TextArea";
 import { useRouter } from "next/navigation";
+import Title from "@/components/Title";
 
 type Props = {};
 
@@ -61,7 +62,7 @@ const Contact = (props: Props) => {
 
       {!thankyou && (
         <>
-          <h1 className="py-5">Contact me</h1>
+          <Title title="Contact me" />
           <form
             className="flex  justify-center items-start form-control w-full border border-opacity-25 rounded-md p-5 space-y-2"
             onSubmit={handleSubmit(onValid)}

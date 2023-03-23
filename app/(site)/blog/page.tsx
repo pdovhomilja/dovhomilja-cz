@@ -6,9 +6,11 @@ type Props = {};
 
 const Blog = (props: Props) => {
   return (
-    <div>
-      <Title title="Blog" />
-      <div>
+    <div className="flex flex-col w-full h-full ">
+      <div className="flex w-full justify-center">
+        <Title title="Blog" />
+      </div>
+      <div className="flex ">
         <ShowPosts status="published" admin="false" />
       </div>
     </div>
