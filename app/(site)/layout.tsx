@@ -1,6 +1,7 @@
 import Left from "@/components/Left";
 import Navbar from "@/components/Navbar";
 import Right from "@/components/Right";
+export { reportWebVitals } from "next-axiom";
 import "@/styles/globals.css";
 
 export const metadata = {
