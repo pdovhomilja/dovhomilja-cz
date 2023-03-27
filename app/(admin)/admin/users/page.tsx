@@ -3,6 +3,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import LoginButton from "@/components/admin/Button";
 import Title from "@/components/Title";
 import prisma from "@/lib/prismadb";
+import ShowUsers from "@/components/admin/ShowUsers";
 
 export default async function Users() {
   const session = await getServerSession(authOptions);
@@ -19,6 +20,7 @@ export default async function Users() {
   return (
     <div>
       <Title title="Users" />
+      <ShowUsers />
       <pre>{JSON.stringify(users, null, 2)}</pre>
     </div>
   );

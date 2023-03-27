@@ -16,7 +16,7 @@ html {
 
 @layer components {
   .link {
-    @apply text-xs p-2 text-slate-400 hover:border rounded-md;
+    @apply text-xs p-2 text-slate-400 border border-[rgb(15,23,42)] hover:border hover:border-white rounded-md;
   }
 
   .timeline-img {

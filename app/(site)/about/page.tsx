@@ -9,16 +9,16 @@ const About = (props: Props) => {
     <div className="w-full h-full  px-10">
       <Title title="About me" />
       <div className="flex flex-row space-x-5 justify-center w-full">
-        <div className=" w-52 border p-2 rounded-md z-0">
+        <div className=" w-52 ">
           <Image
             src="/images/profile_pd.jpeg"
-            className="opacity-75 rounded-md -m-5 z-10 shadow-md"
+            className="opacity-75 rounded-md  "
             width={300}
             height={300}
             alt="Pavel Dovhomilja"
           />
         </div>
-        <div className="flex grow opacity-50">
+        <div className="flex flex-col grow opacity-50">
           <p>Some greate words about me</p>
           <div>
             <h2>My coding stack:</h2>
