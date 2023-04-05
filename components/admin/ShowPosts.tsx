@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import useSWR from "swr";
 import fetcher from "@/pages/api/fetcher";
 import Title from "../Title";
@@ -18,7 +18,7 @@ const ShowPosts = (props: Props) => {
 
   const {
     data: drafts,
-    error,
+
     mutate,
   } = useSWR(url, fetcher, {
     refreshInterval: 5000, // Polling every 5000ms (5 seconds)
@@ -68,12 +68,9 @@ const ShowPosts = (props: Props) => {
     }
   };
 
-  if (error) return <div>Failed to load drafts</div>;
-  if (!drafts) return <div>Loading {props.status} ...</div>;
-
   return (
     <div className="flex flex-wrap mx-auto justify-center gap-5">
-      {drafts.length > 0
+      {drafts?.length > 0
         ? drafts?.map((draft: any) => (
             <div
               key={draft.id}

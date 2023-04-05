@@ -4,11 +4,18 @@ import React from "react";
 
 type Props = {};
 
+export const metadata = {
+  title: "About me",
+  description: "Some greate words about me",
+  keywords:
+    "Pavel Dovhomilja, React, Next.js, Typescript, Node.js, Express, PostgreSQL, GraphQL",
+};
+
 const About = (props: Props) => {
   return (
-    <div className="w-full h-full  px-10">
+    <div className="flex flex-col w-full h-full  px-10">
       <Title title="About me" />
-      <div className="flex flex-row space-x-5 justify-center w-full">
+      <div className="flex flex-col md:flex-row space-x-5 justify-center w-full">
         <div className=" w-52 ">
           <Image
             src="/images/profile_pd.jpeg"

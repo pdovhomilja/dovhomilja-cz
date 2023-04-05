@@ -7,6 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import TextArea from "@/components/TextArea";
 import { useRouter } from "next/navigation";
 import Title from "@/components/Title";
+import toast, { Toaster } from "react-hot-toast";
 
 type Props = {};
 
