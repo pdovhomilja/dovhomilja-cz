@@ -1,11 +1,9 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Tweet } from "react-tweet";
 
 export default function Home() {
   return (
-    <main>
-      <div>
+    <main className="flex mx-52">
+      <div className="px-10">
         <p className="text-xl opacity-30 pb-5"> Hi, my name is,</p>
         <h1 className="text-3xl text-white">Pavel Dovhomilja</h1>
         <p className="opacity-50 text-justify py-5 text-xs md:text-lg">
@@ -42,6 +40,9 @@ export default function Home() {
           to continued learning and growth, and I look forward to the challenges
           and opportunities that lie ahead.
         </p>
+      </div>
+      <div>
+        <Tweet id="1660617181061697539" />
       </div>
     </main>
   );
