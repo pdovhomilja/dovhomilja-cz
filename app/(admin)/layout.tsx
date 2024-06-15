@@ -1,7 +1,8 @@
 import Title from "@/components/Title";
 import AdminNavbar from "@/components/admin/AdminNavbar";
 import LoginButton from "@/components/admin/Button";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
+
 import { getServerSession } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 

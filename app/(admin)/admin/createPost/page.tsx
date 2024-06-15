@@ -1,7 +1,8 @@
 import LoginButton from "@/components/admin/Button";
 import CreatePost from "@/components/admin/CreatePost";
 import Title from "@/components/Title";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
+
 import { getServerSession } from "next-auth";
 
 type Props = {};

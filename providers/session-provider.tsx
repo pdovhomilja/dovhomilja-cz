@@ -1,8 +1,9 @@
 import * as React from "react";
 import { createContext, useContext, ReactNode } from "react";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
 import { Session } from "next-auth";
+import { authOptions } from "@/lib/auth";
 
 // Create a new context for the session
 const SessionContext = createContext<Session | null>(null);

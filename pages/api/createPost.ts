@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../app/api/auth/[...nextauth]/route";
+
 import prisma from "@/lib/prismadb";
+import { authOptions } from "@/lib/auth";
 
 interface CustomError extends Error {
   message: string;

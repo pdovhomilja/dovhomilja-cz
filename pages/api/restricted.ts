@@ -1,11 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../../app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/lib/auth";
 
 export default async function helper(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+
   const session = await getServerSession(req, res, authOptions);
   if (session) {
     res.send({
