@@ -2,7 +2,7 @@ import React from "react";
 import Title from "@/components/Title";
 import ShowDrafts from "@/components/admin/ShowPosts";
 import LoginButton from "@/components/admin/Button";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth/next";
 
 type Props = {};

@@ -1,9 +1,11 @@
 "use client";
 
 import useSWR from "swr";
-import fetcher from "@/pages/api/fetcher";
+import fetcher from "@/lib/fetcher";
 import Title from "../Title";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardTitle } from "../ui/card";
 
 type Props = {
   status: string;
@@ -16,11 +18,7 @@ const ShowPosts = (props: Props) => {
       ? "/api/drafts/getDrafts"
       : "/api/drafts/getPublished";
 
-  const {
-    data: drafts,
-
-    mutate,
-  } = useSWR(url, fetcher, {
+  const { data: drafts, mutate } = useSWR(url, fetcher, {
     refreshInterval: 5000, // Polling every 5000ms (5 seconds)
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
@@ -72,20 +70,18 @@ const ShowPosts = (props: Props) => {
     <div className="flex flex-wrap mx-auto justify-center gap-5">
       {drafts?.length > 0
         ? drafts?.map((draft: any) => (
-            <div
-              key={draft.id}
-              className="flex
-     gap-5 border-2 border-gray-600 rounded-md shadow-md px-2"
-            >
-              <div className="w-full p-5">
+            <Card key={draft.id}>
+              <CardTitle>
                 <Link href={`/blog/${draft.id}`}>
                   <Title title={draft.title} />
                 </Link>
-
+              </CardTitle>
+              <CardContent>
                 <p>{draft.id}</p>
-
                 <p>{draft.content}</p>
-              </div>
+                <p>Status: {props.status}</p>
+              </CardContent>
+              <div className="w-full p-5"></div>
               <div
                 className={
                   props.admin === "false"
@@ -93,30 +89,28 @@ const ShowPosts = (props: Props) => {
                     : `flex justify-end items-center gap-2`
                 }
               >
-                <div
+                <Button
                   className={
                     props.status === "published" ? `hidden` : `btn btn-outline`
                   }
                   onClick={() => handelAllow(draft.id)}
                 >
                   Allow
-                </div>
-                <div
-                  className={
-                    props.status === "drafts" ? `hidden` : `btn btn-outline`
-                  }
+                </Button>
+                <Button
+                  disabled={props.status === "drafts" ? true : false}
                   onClick={() => handelDisable(draft.id)}
                 >
                   Disable
-                </div>
-                <div
+                </Button>
+                <Button
                   className="btn btn-outline"
                   onClick={() => handelDelete(draft.id)}
                 >
                   Delete
-                </div>
+                </Button>
               </div>
-            </div>
+            </Card>
           ))
         : props.status === "drafts"
         ? "There is no drafts"

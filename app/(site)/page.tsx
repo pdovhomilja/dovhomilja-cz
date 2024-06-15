@@ -1,12 +1,14 @@
+import { Card, CardContent } from "@/components/ui/card";
 import { Tweet } from "react-tweet";
+import TweetsComponent from "./_components/tweets";
 
 export default function Home() {
   return (
-    <main className="flex mx-52">
-      <div className="px-10">
+    <div className="flex flex-col md:mx-5  h-full overflow-y-auto">
+      <div className="md:px-10">
         <p className="text-xl opacity-30 pb-5"> Hi, my name is,</p>
-        <h1 className="text-3xl text-white">Pavel Dovhomilja</h1>
-        <p className="opacity-50 text-justify py-5 text-xs md:text-lg">
+        <h1 className="text-3xl ">Pavel Dovhomilja</h1>
+        <p className="opacity-75 text-justify py-5 text-xs md:text-lg">
           I am an entrepreneur who has founded several tech startups, each with
           its unique challenges and rewards. Among my many accomplishments, I am
           most proud of my successful M&A process, where I played a key role as
@@ -41,9 +43,11 @@ export default function Home() {
           and opportunities that lie ahead.
         </p>
       </div>
-      <div>
-        <Tweet id="1660617181061697539" />
+      <div className="flex flex-col lg:flex-row md:p-10 gap-10  h-full grow items-start">
+        <div>
+          <TweetsComponent />
+        </div>
       </div>
-    </main>
+    </div>
   );
 }

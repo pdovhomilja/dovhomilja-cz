@@ -70,3 +70,24 @@ model Post {
   author    User?    @relation(fields: [authorId], references: [id])
   authorId  String  @db.ObjectId
 }
+
+model TwitterFollowers{
+              id                  String @id @default(auto()) @map("_id") @db.ObjectId
+              id_str              String
+              name                String
+              screen_name         String
+              location            String?
+              url                 String?
+              description         String?
+              protected           Boolean
+              verified            Boolean
+              followers_count     Int
+              friends_count       Int
+              listed_count        Int
+              favourites_count    Int
+              statuses_count      Int
+              created_at          DateTime
+              profile_banner_url  String?
+              profile_image_url_https String?
+              can_dm              Boolean
+}

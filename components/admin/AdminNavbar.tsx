@@ -2,10 +2,29 @@
 import Link from "next/link";
 import { signOut } from "next-auth/react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 type Props = {};
 
 const AdminNavbar = (props: Props) => {
+  const navItems = [
+    {
+      name: "Create post",
+      href: "/admin/createPost",
+    },
+    {
+      name: "Drafts",
+      href: "/admin/draft",
+    },
+    {
+      name: "Published",
+      href: "/admin/published",
+    },
+    {
+      name: "Users",
+      href: "/admin/users",
+    },
+  ];
   return (
     <>
       <div className="flex flex-row w-full p-5 justify-center items-center">
@@ -21,23 +40,16 @@ const AdminNavbar = (props: Props) => {
           </Link>
         </div>
         <div className="flex w-full items-center justify-center px-5 gap-2">
-          <Link className="btn btn-outline" href="/admin/createPost">
-            Create post
-          </Link>
-          <Link className="btn btn-outline" href="/admin/draft">
-            Drafts
-          </Link>
-          <Link className="btn btn-outline" href="/admin/published">
-            Published
-          </Link>
-          <Link className="btn btn-outline" href="/admin/users">
-            Users
-          </Link>
+          {navItems.map((item, index) => (
+            <Button key={index} asChild>
+              <Link href={item.href} key={index}>
+                {item.name}
+              </Link>
+            </Button>
+          ))}
         </div>
         <div className="flex grow items-center justify-end">
-          <button className="btn btn-outline" onClick={() => signOut()}>
-            LogOut
-          </button>
+          <Button onClick={() => signOut()}>LogOut</Button>
         </div>
       </div>
     </>

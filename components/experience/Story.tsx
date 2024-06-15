@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 type Props = {
@@ -8,11 +9,14 @@ const Story = (props: Props) => {
   const { align } = props;
   return (
     <div className="relative z-10">
-      <img
-        src="/images/profile_photo.jpeg"
-        alt="photo"
-        className="timeline-img"
-      />
+      <div className="relative w-24 h-24">
+        <Image
+          src="/images/profile_photo.jpeg"
+          alt="photo"
+          fill
+          className="timeline-img"
+        />
+      </div>
       <div
         className={
           align === "right"

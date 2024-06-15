@@ -1,14 +1,9 @@
 "use client";
 import { signIn } from "next-auth/react";
+import { Button } from "../ui/button";
 
-type Props = {};
-
-const LoginButton = (props: Props) => {
-  return (
-    <button className="btn btn-outline" onClick={() => signIn()}>
-      LogIn
-    </button>
-  );
+const LoginButton = () => {
+  return <Button onClick={() => signIn()}>LogIn</Button>;
 };
 
 export default LoginButton;
