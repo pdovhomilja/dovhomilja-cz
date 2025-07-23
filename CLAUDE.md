@@ -20,6 +20,7 @@ This is a Next.js 15.4.3 application using the App Router architecture with the 
 - **Framework**: Next.js 15.4.3 with App Router
 - **Runtime**: React 19.1.0
 - **Database**: Prisma ORM 6.12.0 with PostgreSQL
+- **Email**: Resend 4.7.0 for transactional emails
 - **Styling**: Tailwind CSS v4 with CSS variables
 - **Components**: shadcn/ui components (New York style)
 - **Icons**: Lucide React
@@ -28,15 +29,23 @@ This is a Next.js 15.4.3 application using the App Router architecture with the 
 
 ### Directory Structure
 - `app/` - Next.js App Router pages and layouts
-  - `layout.tsx` - Root layout with font configuration
-  - `page.tsx` - Homepage component
-  - `globals.css` - Global Tailwind styles
+  - `layout.tsx` - Root layout with font configuration and SEO metadata
+  - `page.tsx` - Homepage component importing all sections
+  - `globals.css` - Global Tailwind styles with custom animations
+  - `api/send-email/route.ts` - Email sending API endpoint using Resend
+- `components/` - Reusable React components
+  - `sections/` - Page section components
+    - `HeroSection.tsx` - Landing hero with CTA and animations
+    - `AboutSection.tsx` - Pavel's background and expertise
+    - `CompanySection.tsx` - EndorphinIT and Xmation showcase
+    - `AchievementsSection.tsx` - Professional achievements and metrics
+    - `ContactSection.tsx` - Contact form and multiple contact methods
+  - `ui/` - ShadcnUI component library (button, card, input, etc.)
 - `lib/` - Shared utilities
   - `utils.ts` - Contains `cn()` helper for merging Tailwind classes
   - `generated/prisma/` - Generated Prisma client (auto-generated)
 - `prisma/` - Database schema and migrations
   - `schema.prisma` - Database schema definition
-- `components/` - Reusable React components (currently empty but configured for shadcn/ui)
 - `public/` - Static assets (SVG icons)
 
 ### Configuration Files
@@ -60,3 +69,13 @@ This is a Next.js 15.4.3 application using the App Router architecture with the 
 - TypeScript strict mode enabled with modern ES2017+ target
 - Prisma client generated to `lib/generated/prisma/` for better organization
 - PostgreSQL database with environment-based connection string
+- Email functionality using Resend with professional HTML templates
+- Contact form with real-time validation and status feedback
+
+### Email Configuration
+- **Provider**: Resend (resend.com)
+- **API Key**: Set in `RESEND_API_KEY` environment variable
+- **From Address**: contact@dovhomilja.cz
+- **To Address**: pavel@dovhomilja.com
+- **Features**: Auto-reply emails, HTML/text format, error handling
+- **Templates**: Professional branded email templates with responsive design
