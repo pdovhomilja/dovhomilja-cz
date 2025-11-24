@@ -14,12 +14,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Pavel Dovhomilja | AI Industry Leader & EndorphinIT Co-founder",
-  description: "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform. Transforming businesses with cutting-edge AI solutions.",
-  keywords: "Pavel Dovhomilja, AI, artificial intelligence, EndorphinIT, Xmation, startup founder, AI employee platform, workplace automation, innovation",
+  description:
+    "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform. Transforming businesses with cutting-edge AI solutions.",
+  keywords:
+    "Pavel Dovhomilja, AI, artificial intelligence, EndorphinIT, Xmation, startup founder, AI employee platform, workplace automation, innovation",
   authors: [{ name: "Pavel Dovhomilja" }],
   openGraph: {
     title: "Pavel Dovhomilja | AI Industry Leader & EndorphinIT Co-founder",
-    description: "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform.",
+    description:
+      "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform.",
     url: "https://dovhomilja.cz",
     siteName: "Pavel Dovhomilja",
     type: "website",
@@ -27,7 +30,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Pavel Dovhomilja | AI Industry Leader & EndorphinIT Co-founder",
-    description: "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform.",
+    description:
+      "Innovative entrepreneur and AI expert driving the future of workplace automation through Xmation AI employee platform.",
   },
 };
 
@@ -39,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
         {children}
       </body>

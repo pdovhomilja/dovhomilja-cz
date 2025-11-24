@@ -1,140 +1,208 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Brain, Rocket, Users, Target, Lightbulb } from "lucide-react";
+import { Terminal, ChevronRight, Check } from "lucide-react";
 
 export function AboutSection() {
+  const expertise = [
+    { category: "AI_ARCHITECTURE", level: "EXPERT", years: "10+" },
+    { category: "MACHINE_LEARNING", level: "EXPERT", years: "10+" },
+    { category: "NEURAL_NETWORKS", level: "ADVANCED", years: "8+" },
+    { category: "AUTOMATION", level: "EXPERT", years: "12+" },
+    { category: "TEAM_LEADERSHIP", level: "EXPERT", years: "10+" },
+    { category: "PRODUCT_STRATEGY", level: "ADVANCED", years: "8+" },
+  ];
+
+  const achievements = [
+    "CO-FOUNDER @ ENDORPHINIT",
+    "LEAD_ARCHITECT @ XMATION",
+    "1M+ AI_INTERACTIONS_HANDLED",
+    "50+ ENTERPRISE_DEPLOYMENTS",
+    "15+ TEAM_MEMBERS_LEADING",
+  ];
+
   return (
-    <section id="about" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16 animate-slide-up">
-            <Badge variant="outline" className="mb-4">
-              About Pavel
-            </Badge>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Visionary Leader in
-              <span className="gradient-text"> AI Innovation</span>
+    <section id="about" className="py-32 relative overflow-hidden bg-zinc-950">
+      {/* Technical Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-cyan-500/5 to-zinc-950"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header - Terminal Style */}
+          <div className="mb-16">
+            <div className="font-mono text-sm text-cyan-400 mb-4">
+              <span className="text-zinc-600">$</span> ./get_profile.sh --detailed
+            </div>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
+              <span className="text-white">PROFILE</span>
+              <span className="terminal-gradient bg-clip-text text-transparent"> /EXECUTIVE_SUMMARY</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A passionate entrepreneur dedicated to transforming how businesses operate 
-              through intelligent automation and cutting-edge AI solutions.
-            </p>
+            <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-emerald-500"></div>
           </div>
 
-          {/* Main Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 mb-16">
-            {/* Left Column - Story */}
-            <div className="space-y-6 animate-slide-up">
-              <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-blue-500/10 rounded-lg">
-                      <Rocket className="w-6 h-6 text-blue-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Entrepreneurial Journey</h3>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    As co-founder of EndorphinIT, Pavel has been at the forefront of the AI revolution, 
-                    building solutions that bridge the gap between human creativity and artificial intelligence.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    His vision extends beyond technology—he&apos;s creating a future where AI empowers 
-                    human potential rather than replacing it, fostering innovation across industries.
-                  </p>
-                </CardContent>
-              </Card>
+          <div className="grid lg:grid-cols-2 gap-8 mb-16">
+            {/* Main Bio Terminal */}
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div className="text-xs text-zinc-500 font-mono">
+                  bio@dovhomilja:~$
+                </div>
+              </div>
 
-              <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-purple-500/10 rounded-lg">
-                      <Brain className="w-6 h-6 text-purple-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold">AI Expertise</h3>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    With deep expertise in machine learning, natural language processing, and 
-                    automation frameworks, Pavel leads the development of Xmation—an AI employee 
-                    platform that&apos;s revolutionizing workplace productivity and efficiency.
+              <div className="p-6 space-y-4 font-mono text-sm">
+                <div className="text-zinc-500">
+                  <span className="text-emerald-400">$</span> cat mission.txt
+                </div>
+                <div className="pl-4 text-zinc-300 leading-relaxed space-y-3 text-base">
+                  <p>
+                    <span className="text-cyan-400">[MISSION]</span> Pioneering the next generation
+                    of AI automation systems that transform enterprise operations.
                   </p>
-                </CardContent>
-              </Card>
+                  <p>
+                    <span className="text-emerald-400">[VISION]</span> Creating intelligent systems
+                    that augment human capabilities rather than replacing them—fostering innovation
+                    across industries.
+                  </p>
+                  <p className="text-zinc-500 text-sm">
+                    &quot;AI should empower human potential, not replace it.&quot;
+                  </p>
+                </div>
+
+                <div className="pt-4 border-t border-zinc-800">
+                  <div className="text-zinc-500 mb-3">
+                    <span className="text-emerald-400">$</span> ls achievements/
+                  </div>
+                  <div className="pl-4 space-y-2">
+                    {achievements.map((achievement, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-3 text-zinc-400 hover:text-cyan-400 transition-colors"
+                      >
+                        <ChevronRight className="w-3 h-3 text-emerald-400" />
+                        <span className="text-xs">{achievement}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Right Column - Values & Approach */}
-            <div className="space-y-6 animate-slide-up">
-              <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-                <CardContent className="p-8">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-green-500/10 rounded-lg">
-                      <Target className="w-6 h-6 text-green-500" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Vision & Mission</h3>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    &quot;I believe AI should augment human capabilities, not replace them. Our mission 
-                    is to create intelligent systems that empower people to focus on what they do best—innovate, 
-                    create, and solve complex problems.&quot;
-                  </p>
-                  <div className="text-sm text-muted-foreground italic">
-                    — Pavel Dovhomilja, Co-founder EndorphinIT
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Expertise Matrix Terminal */}
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div className="text-xs text-zinc-500 font-mono">
+                  skills@matrix:~$
+                </div>
+              </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <div className="p-3 bg-orange-500/10 rounded-lg w-fit mx-auto mb-4">
-                      <Users className="w-6 h-6 text-orange-500" />
-                    </div>
-                    <h4 className="font-semibold mb-2">Team Leadership</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Building and inspiring world-class AI teams
-                    </p>
-                  </CardContent>
-                </Card>
+              <div className="p-6 space-y-4 font-mono text-sm">
+                <div className="text-zinc-500">
+                  <span className="text-emerald-400">$</span> analyze --expertise-matrix
+                </div>
 
-                <Card className="border-0 shadow-lg bg-card/50 backdrop-blur-sm">
-                  <CardContent className="p-6 text-center">
-                    <div className="p-3 bg-pink-500/10 rounded-lg w-fit mx-auto mb-4">
-                      <Lightbulb className="w-6 h-6 text-pink-500" />
+                <div className="space-y-3">
+                  {expertise.map((skill, index) => (
+                    <div
+                      key={index}
+                      className="pl-4 space-y-1"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-cyan-400 text-xs">{skill.category}</span>
+                        <span className="text-zinc-600 text-xs">{skill.years}</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <div className="flex-1 h-2 bg-zinc-900 rounded-full overflow-hidden">
+                          <div
+                            className={`h-full bg-gradient-to-r from-cyan-500 to-emerald-500 transition-all duration-1000 ${
+                              skill.level === "EXPERT" ? "w-full" : "w-4/5"
+                            }`}
+                          ></div>
+                        </div>
+                        <span className="text-emerald-400 text-xs font-bold min-w-[60px]">
+                          {skill.level}
+                        </span>
+                      </div>
                     </div>
-                    <h4 className="font-semibold mb-2">Innovation Focus</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Pushing boundaries of what&apos;s possible with AI
-                    </p>
-                  </CardContent>
-                </Card>
+                  ))}
+                </div>
+
+                <div className="pt-4 border-t border-zinc-800">
+                  <div className="text-zinc-500 mb-3">
+                    <span className="text-emerald-400">$</span> ./verify_credentials.sh
+                  </div>
+                  <div className="pl-4 space-y-2">
+                    <div className="flex items-center gap-2 text-emerald-400 text-xs">
+                      <Check className="w-3 h-3" />
+                      <span>AI_SYSTEMS_ARCHITECT [VERIFIED]</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-emerald-400 text-xs">
+                      <Check className="w-3 h-3" />
+                      <span>ENTERPRISE_DEPLOYMENT [CERTIFIED]</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-emerald-400 text-xs">
+                      <Check className="w-3 h-3" />
+                      <span>TEAM_LEADERSHIP [VALIDATED]</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 text-emerald-400 animate-pulse pt-2">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                  <span className="text-xs">STATUS: ACTIVE</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Core Competencies */}
-          <div className="animate-fade-in">
-            <h3 className="text-2xl font-bold text-center mb-8">Core Competencies</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {[
-                "Machine Learning",
-                "AI Strategy",
-                "Product Development",
-                "Team Leadership",
-                "Business Innovation",
-                "Technology Vision"
-              ].map((skill, index) => (
-                <div
-                  key={skill}
-                  className="bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-950/30 dark:to-purple-950/30 
-                           rounded-lg p-4 text-center border border-border/50 hover:shadow-lg transition-all duration-300
-                           hover:scale-105 cursor-default"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="text-sm font-medium">{skill}</div>
-                </div>
-              ))}
+          {/* Tech Stack - Command Line Output */}
+          <div className="terminal-window">
+            <div className="terminal-header">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              </div>
+              <div className="text-xs text-zinc-500 font-mono">
+                tech@stack:~$
+              </div>
+            </div>
+
+            <div className="p-6 font-mono text-sm">
+              <div className="text-zinc-500 mb-4">
+                <span className="text-emerald-400">$</span> list --core-competencies
+              </div>
+              <div className="flex flex-wrap gap-2 pl-4">
+                {[
+                  "MACHINE_LEARNING",
+                  "NEURAL_NETWORKS",
+                  "NLP_PROCESSING",
+                  "AUTOMATION_FRAMEWORKS",
+                  "AI_STRATEGY",
+                  "PRODUCT_DEVELOPMENT",
+                  "ENTERPRISE_ARCHITECTURE",
+                  "TEAM_BUILDING",
+                  "INNOVATION_MANAGEMENT",
+                  "BUSINESS_SCALING",
+                ].map((tech, index) => (
+                  <div
+                    key={index}
+                    className="px-3 py-1 bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 transition-colors text-xs text-zinc-400 hover:text-cyan-400"
+                  >
+                    {tech}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

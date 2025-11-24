@@ -1,235 +1,291 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Bot,
-  Shield,
-  Workflow,
   ArrowRight,
   Building2,
-  Cpu,
-  Globe,
+  Bot,
+  Activity,
+  Server,
+  Users,
   TrendingUp,
+  Shield,
+  Zap,
+  ChevronRight,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export function CompanySection() {
   const router = useRouter();
+
+  const endorphinMetrics = [
+    { label: "FOUNDED", value: "2023", unit: "" },
+    { label: "TEAM_SIZE", value: "15", unit: "+" },
+    { label: "FOCUS", value: "AI_INNOVATION", unit: "" },
+  ];
+
+  const xmationMetrics = [
+    { label: "UPTIME", value: "99.9", unit: "%" },
+    { label: "OPERATION", value: "24/7", unit: "" },
+    { label: "DEPLOYMENTS", value: "50", unit: "+" },
+  ];
+
+  const capabilities = [
+    { icon: Zap, label: "PROCESS_AUTOMATION", desc: "Intelligent workflow optimization" },
+    { icon: Activity, label: "SMART_ANALYTICS", desc: "Real-time data processing" },
+    { icon: Shield, label: "ENTERPRISE_SECURITY", desc: "Bank-grade protection" },
+    { icon: TrendingUp, label: "SCALABLE_GROWTH", desc: "Dynamic resource scaling" },
+  ];
+
+  const impactMetrics = [
+    { value: "85%", label: "EFFICIENCY_BOOST", desc: "Average productivity increase" },
+    { value: "$2M+", label: "COST_SAVINGS", desc: "Total operational reduction" },
+    { value: "48hrs", label: "DEPLOYMENT", desc: "Average setup time" },
+  ];
+
   return (
-    <section id="company" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="company" className="py-32 relative overflow-hidden bg-zinc-950">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-emerald-500/5 to-zinc-950"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <Badge variant="outline" className="mb-4">
-            Company Showcase
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            <span className="gradient-text">EndorphinIT</span> & Xmation
-            Platform
+        <div className="mb-16">
+          <div className="font-mono text-sm text-cyan-400 mb-4">
+            <span className="text-zinc-600">$</span> ./show_portfolio.sh --companies
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
+            <span className="text-white">VENTURES</span>
+            <span className="terminal-gradient bg-clip-text text-transparent"> /ENTERPRISE_SYSTEMS</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Pioneering the future of workplace automation with cutting-edge AI
-            employee solutions that transform how businesses operate and scale.
-          </p>
+          <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-emerald-500"></div>
         </div>
 
-        {/* Company Overview */}
-        <div className="grid lg:grid-cols-2 gap-12 mb-20">
-          <div className="animate-slide-up">
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-blue-500/10 rounded-xl">
-                    <Building2 className="w-8 h-8 text-blue-500" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl">EndorphinIT</CardTitle>
-                    <p className="text-muted-foreground">
-                      AI Innovation Company
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  Founded with a vision to democratize AI capabilities,
-                  EndorphinIT develops intelligent automation solutions that
-                  seamlessly integrate into existing business workflows,
-                  enhancing productivity without disrupting operations.
-                </p>
+        {/* Company Cards */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16 max-w-6xl mx-auto">
+          {/* EndorphinIT Terminal */}
+          <div className="terminal-window">
+            <div className="terminal-header">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              </div>
+              <div className="text-xs text-zinc-500 font-mono">
+                endorphinit@company:~$
+              </div>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">2023</div>
-                    <div className="text-sm text-muted-foreground">Founded</div>
-                  </div>
-                  <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">15+</div>
-                    <div className="text-sm text-muted-foreground">
-                      Team Members
-                    </div>
-                  </div>
+            <div className="p-6 space-y-4 font-mono text-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-cyan-500/10 rounded-lg">
+                  <Building2 className="w-8 h-8 text-cyan-400" />
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">ENDORPHINIT</h3>
+                  <p className="text-xs text-zinc-500">AI_INNOVATION_COMPANY</p>
+                </div>
+              </div>
+
+              <div className="text-zinc-500 mb-2">
+                <span className="text-emerald-400">$</span> cat company_info.txt
+              </div>
+
+              <div className="pl-4 text-zinc-400 leading-relaxed text-xs space-y-2">
+                <p>
+                  Democratizing AI capabilities through intelligent automation
+                  solutions that seamlessly integrate into existing business
+                  workflows—enhancing productivity without disrupting operations.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800">
+                <div className="grid grid-cols-3 gap-4">
+                  {endorphinMetrics.map((metric, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className="text-cyan-400 font-bold text-lg">
+                        {metric.value}{metric.unit}
+                      </div>
+                      <div className="text-zinc-600 text-xs">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-cyan-400 animate-pulse pt-2">
+                <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                <span className="text-xs">STATUS: OPERATIONAL</span>
+              </div>
+            </div>
           </div>
 
-          <div className="animate-slide-up">
-            <Card className="border-0 shadow-xl bg-gradient-to-br from-purple-50/50 to-pink-50/50 dark:from-purple-950/20 dark:to-pink-950/20">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 bg-purple-500/10 rounded-xl">
-                    <Bot className="w-8 h-8 text-purple-500" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl">Xmation Platform</CardTitle>
-                    <p className="text-muted-foreground">
-                      AI Employee Solution
-                    </p>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <p className="text-muted-foreground leading-relaxed">
-                  Our flagship AI employee platform that provides businesses
-                  with intelligent virtual workers capable of handling complex
-                  tasks, learning from interactions, and continuously improving
-                  performance.
-                </p>
+          {/* Xmation Terminal */}
+          <div className="terminal-window">
+            <div className="terminal-header">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              </div>
+              <div className="text-xs text-zinc-500 font-mono">
+                xmation@platform:~$
+              </div>
+            </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">24/7</div>
-                    <div className="text-sm text-muted-foreground">
-                      Operation
-                    </div>
-                  </div>
-                  <div className="text-center p-4 bg-white/50 dark:bg-black/20 rounded-lg">
-                    <div className="text-2xl font-bold gradient-text">
-                      99.9%
-                    </div>
-                    <div className="text-sm text-muted-foreground">Uptime</div>
-                  </div>
+            <div className="p-6 space-y-4 font-mono text-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-3 bg-emerald-500/10 rounded-lg">
+                  <Bot className="w-8 h-8 text-emerald-400" />
                 </div>
-              </CardContent>
-            </Card>
+                <div>
+                  <h3 className="text-2xl font-bold text-white">XMATION</h3>
+                  <p className="text-xs text-zinc-500">AI_EMPLOYEE_PLATFORM</p>
+                </div>
+              </div>
+
+              <div className="text-zinc-500 mb-2">
+                <span className="text-emerald-400">$</span> cat platform_desc.txt
+              </div>
+
+              <div className="pl-4 text-zinc-400 leading-relaxed text-xs space-y-2">
+                <p>
+                  Flagship AI employee platform providing businesses with
+                  intelligent virtual workers capable of handling complex tasks,
+                  learning from interactions, and continuously improving performance.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-zinc-800">
+                <div className="grid grid-cols-3 gap-4">
+                  {xmationMetrics.map((metric, idx) => (
+                    <div key={idx} className="text-center">
+                      <div className="text-emerald-400 font-bold text-lg">
+                        {metric.value}{metric.unit}
+                      </div>
+                      <div className="text-zinc-600 text-xs">{metric.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2 text-emerald-400 animate-pulse pt-2">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full"></div>
+                <span className="text-xs">STATUS: ACTIVE</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Key Features */}
-        <div className="mb-20">
-          <h3 className="text-2xl font-bold text-center mb-12">
-            Platform Capabilities
-          </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                icon: Workflow,
-                title: "Process Automation",
-                description:
-                  "Streamline complex workflows with intelligent automation",
-                color: "blue",
-              },
-              {
-                icon: Cpu,
-                title: "Smart Analytics",
-                description: "Advanced data processing and insights generation",
-                color: "purple",
-              },
-              {
-                icon: Shield,
-                title: "Enterprise Security",
-                description: "Bank-grade security with compliance standards",
-                color: "green",
-              },
-              {
-                icon: TrendingUp,
-                title: "Scalable Growth",
-                description: "Grows with your business needs and demands",
-                color: "orange",
-              },
-            ].map((feature, index) => (
-              <Card
-                key={feature.title}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CardContent className="p-6 text-center">
+        {/* Capabilities */}
+        <div className="mb-16">
+          <div className="terminal-window max-w-6xl mx-auto">
+            <div className="terminal-header">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              </div>
+              <div className="text-xs text-zinc-500 font-mono">
+                capabilities@xmation:~$
+              </div>
+            </div>
+
+            <div className="p-6 font-mono text-sm">
+              <div className="text-zinc-500 mb-4">
+                <span className="text-emerald-400">$</span> list --platform-capabilities
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 pl-4">
+                {capabilities.map((cap, idx) => (
                   <div
-                    className={`p-3 bg-${feature.color}-500/10 rounded-xl w-fit mx-auto mb-4`}
+                    key={idx}
+                    className="p-4 bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 transition-all group"
                   >
-                    <feature.icon
-                      className={`w-6 h-6 text-${feature.color}-500`}
-                    />
+                    <div className="flex items-center gap-2 mb-3">
+                      <cap.icon className="w-5 h-5 text-cyan-400 group-hover:text-emerald-400 transition-colors" />
+                      <div className="text-xs text-zinc-400 group-hover:text-cyan-400 transition-colors">
+                        {cap.label}
+                      </div>
+                    </div>
+                    <p className="text-xs text-zinc-600 leading-relaxed">{cap.desc}</p>
                   </div>
-                  <h4 className="font-semibold mb-2">{feature.title}</h4>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Impact Metrics */}
-        <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold mb-8">Real-World Impact</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="animate-scale-in">
-              <div className="text-4xl font-bold gradient-text mb-2">85%</div>
-              <div className="text-muted-foreground">Efficiency Increase</div>
-              <p className="text-sm text-muted-foreground mt-2">
-                Average productivity boost across client implementations
-              </p>
+        <div className="mb-16">
+          <div className="terminal-window max-w-6xl mx-auto">
+            <div className="terminal-header">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+              </div>
+              <div className="text-xs text-zinc-500 font-mono">
+                metrics@impact:~$
+              </div>
             </div>
-            <div
-              className="animate-scale-in"
-              style={{ animationDelay: "200ms" }}
-            >
-              <div className="text-4xl font-bold gradient-text mb-2">$2M+</div>
-              <div className="text-muted-foreground">Cost Savings</div>
-              <p className="text-sm text-muted-foreground mt-2">
-                Total operational costs reduced for our clients
-              </p>
-            </div>
-            <div
-              className="animate-scale-in"
-              style={{ animationDelay: "400ms" }}
-            >
-              <div className="text-4xl font-bold gradient-text mb-2">48hrs</div>
-              <div className="text-muted-foreground">Setup Time</div>
-              <p className="text-sm text-muted-foreground mt-2">
-                Average time to full platform deployment
-              </p>
+
+            <div className="p-6 font-mono text-sm">
+              <div className="text-zinc-500 mb-6">
+                <span className="text-emerald-400">$</span> ./calculate_impact.sh --real-world
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 pl-4">
+                {impactMetrics.map((metric, idx) => (
+                  <div
+                    key={idx}
+                    className="p-6 bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 transition-all text-center"
+                  >
+                    <div className="text-4xl font-bold text-transparent bg-clip-text terminal-gradient mb-3">
+                      {metric.value}
+                    </div>
+                    <div className="text-xs text-cyan-400 font-bold mb-2">{metric.label}</div>
+                    <p className="text-xs text-zinc-600">{metric.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center animate-fade-in">
-          <Card className="border-0 shadow-xl bg-gradient-to-r from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20 max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <Globe className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-              <h4 className="text-xl font-bold mb-4">
-                Ready to Transform Your Business?
-              </h4>
-              <p className="text-muted-foreground mb-6">
-                Discover how Xmation can revolutionize your operations with
-                intelligent automation.
-              </p>
-              <Button
-                size="lg"
-                className="gradient-bg text-white hover:opacity-90 transition-all duration-300 group"
-                onClick={() => router.push("https://xmation.ai")}
-              >
-                Visit Xmation Platform
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </CardContent>
-          </Card>
+        {/* CTA */}
+        <div className="terminal-window max-w-3xl mx-auto">
+          <div className="terminal-header">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+            </div>
+            <div className="text-xs text-zinc-500 font-mono">
+              action@required:~$
+            </div>
+          </div>
+
+          <div className="p-8 font-mono text-center">
+            <div className="inline-flex p-4 bg-cyan-500/10 rounded-lg mb-6">
+              <Server className="w-12 h-12 text-cyan-400" />
+            </div>
+            <h4 className="text-2xl font-bold text-white mb-4">
+              READY_TO_TRANSFORM_YOUR_BUSINESS?
+            </h4>
+            <p className="text-sm text-zinc-400 mb-6 max-w-xl mx-auto">
+              Discover how Xmation revolutionizes operations with intelligent
+              automation powered by cutting-edge AI systems.
+            </p>
+            <Button
+              size="lg"
+              className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold px-8 h-12 group"
+              onClick={() => router.push("https://xmation.ai")}
+            >
+              VISIT_XMATION_PLATFORM
+              <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>

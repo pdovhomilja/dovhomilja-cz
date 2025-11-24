@@ -1,27 +1,24 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import {
   Mail,
   Linkedin,
   Calendar,
-  MessageSquare,
   Send,
-  ExternalLink,
-  MapPin,
-  Clock,
-  Github,
-  Twitter,
   CheckCircle,
   AlertCircle,
   Loader2,
+  Github,
+  Twitter,
+  Terminal,
+  ChevronRight,
+  MapPin,
+  Clock,
 } from "lucide-react";
 
 export function ContactSection() {
@@ -60,7 +57,6 @@ export function ContactSection() {
         throw new Error(result.error || "Failed to send email");
       }
 
-      // Success
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -70,7 +66,6 @@ export function ContactSection() {
         inquiryType: "general",
       });
 
-      // Auto-clear success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus("idle");
       }, 5000);
@@ -95,199 +90,189 @@ export function ContactSection() {
   };
 
   const inquiryTypes = [
-    {
-      value: "general",
-      label: "General Inquiry",
-      description: "Questions or general information",
-    },
-    {
-      value: "business",
-      label: "Business Partnership",
-      description: "Collaboration opportunities",
-    },
-    {
-      value: "speaking",
-      label: "Speaking Engagement",
-      description: "Conference or event speaking",
-    },
-    {
-      value: "media",
-      label: "Media & Press",
-      description: "Interview or media requests",
-    },
-    {
-      value: "demo",
-      label: "Xmation Demo",
-      description: "Product demonstration request",
-    },
+    { value: "general", label: "GENERAL_INQUIRY" },
+    { value: "business", label: "BUSINESS_PARTNERSHIP" },
+    { value: "speaking", label: "SPEAKING_ENGAGEMENT" },
+    { value: "media", label: "MEDIA_PRESS" },
+    { value: "demo", label: "XMATION_DEMO" },
   ];
 
   const contactMethods = [
     {
       icon: Mail,
-      title: "Email",
+      label: "EMAIL",
       value: "pavel@dovhomilja.com",
-      description: "Best for detailed inquiries",
       action: "mailto:pavel@dovhomilja.com",
-      color: "blue",
     },
     {
       icon: Linkedin,
-      title: "LinkedIn",
+      label: "LINKEDIN",
       value: "/in/paveldovhomilja",
-      description: "Professional networking",
       action: "https://www.linkedin.com/in/paveldovhomilja/",
-      color: "blue",
     },
     {
       icon: Calendar,
-      title: "Schedule Meeting",
-      value: "Book 30-min call",
-      description: "Available weekdays 9-17 CET",
-      action: "https://cal.com/paveldovhomilja/30min", // Placeholder for Calendly integration
-      color: "green",
+      label: "SCHEDULE_CALL",
+      value: "30min_meeting",
+      action: "https://cal.com/paveldovhomilja/30min",
     },
-    /*     {
-      icon: Phone,
-      title: "Phone",
-      value: "+420 123 456 789",
-      description: "Business hours only",
-      action: "tel:+420123456789",
-      color: "orange",
-    }, */
   ];
 
   const socialLinks = [
     { icon: Twitter, url: "https://twitter.com/dovhomilja", label: "Twitter" },
     { icon: Github, url: "https://github.com/pdovhomilja", label: "GitHub" },
-    {
-      icon: Linkedin,
-      url: "https://www.linkedin.com/in/paveldovhomilja/",
-      label: "LinkedIn",
-    },
+    { icon: Linkedin, url: "https://www.linkedin.com/in/paveldovhomilja/", label: "LinkedIn" },
   ];
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-32 relative overflow-hidden bg-zinc-950">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#18181b_1px,transparent_1px),linear-gradient(to_bottom,#18181b_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-cyan-500/5 to-zinc-950"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-slide-up">
-          <Badge variant="outline" className="mb-4">
-            Get In Touch
-          </Badge>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-            Let&apos;s
-            <span className="gradient-text"> Connect</span>
+        <div className="mb-16">
+          <div className="font-mono text-sm text-cyan-400 mb-4">
+            <span className="text-zinc-600">$</span> ./initiate_contact.sh
+          </div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4">
+            <span className="text-white">CONTACT</span>
+            <span className="terminal-gradient bg-clip-text text-transparent"> /ESTABLISH_CONNECTION</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to explore AI solutions for your business, discuss
-            partnerships, or explore speaking opportunities? I&apos;d love to
-            hear from you.
+          <div className="h-1 w-24 bg-gradient-to-r from-cyan-500 to-emerald-500 mb-6"></div>
+          <p className="text-zinc-400 max-w-3xl font-mono text-sm">
+            Ready to explore AI solutions, discuss partnerships, or speaking opportunities?
+            <br />
+            <span className="text-cyan-400">SYSTEM_STATUS: ACCEPTING_CONNECTIONS</span>
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-3 gap-12">
-          {/* Contact Methods */}
-          <div className="space-y-6 animate-slide-up">
-            <h3 className="text-xl font-semibold mb-6">Contact Methods</h3>
-
-            {contactMethods.map((method, index) => (
-              <Card
-                key={method.title}
-                className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm group cursor-pointer"
-                onClick={() => window.open(method.action, "_blank")}
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-4">
-                    <div
-                      className={`p-3 bg-${method.color}-500/10 rounded-lg group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <method.icon
-                        className={`w-5 h-5 text-${method.color}-500`}
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <h4 className="font-semibold">{method.title}</h4>
-                        <ExternalLink className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
-                      <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-1">
-                        {method.value}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {method.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-
-            {/* Quick Info */}
-            <Card className="border-0 shadow-lg bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20">
-              <CardContent className="p-6">
-                <h4 className="font-semibold mb-4 flex items-center gap-2">
-                  <MapPin className="w-4 h-4" />
-                  Location & Availability
-                </h4>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-muted-foreground" />
-                    <span>CET Timezone (UTC+1)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-4 h-4 text-muted-foreground" />
-                    <span>Prague, Czech Republic</span>
-                  </div>
-                  <Separator className="my-3" />
-                  <p className="text-muted-foreground text-xs">
-                    I typically respond within 24 hours during business days.
-                  </p>
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* Left Sidebar - Contact Methods */}
+          <div className="space-y-6">
+            {/* Contact Methods Terminal */}
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
                 </div>
-              </CardContent>
-            </Card>
+                <div className="text-xs text-zinc-500 font-mono">
+                  methods@contact:~$
+                </div>
+              </div>
+
+              <div className="p-6 space-y-4 font-mono text-xs">
+                <div className="text-zinc-500 mb-4">
+                  <span className="text-emerald-400">$</span> list --contact-methods
+                </div>
+
+                {contactMethods.map((method, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 transition-all cursor-pointer group"
+                    onClick={() => window.open(method.action, "_blank")}
+                  >
+                    <div className="flex items-center gap-3 mb-2">
+                      <method.icon className="w-4 h-4 text-cyan-400 group-hover:text-emerald-400 transition-colors" />
+                      <span className="text-cyan-400 group-hover:text-emerald-400 transition-colors font-bold">
+                        {method.label}
+                      </span>
+                    </div>
+                    <p className="text-zinc-500 pl-7">{method.value}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Location Info Terminal */}
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div className="text-xs text-zinc-500 font-mono">
+                  location@info:~$
+                </div>
+              </div>
+
+              <div className="p-6 space-y-3 font-mono text-xs">
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <Clock className="w-4 h-4 text-cyan-400" />
+                  <span>TIMEZONE: CET (UTC+1)</span>
+                </div>
+                <div className="flex items-center gap-2 text-zinc-400">
+                  <MapPin className="w-4 h-4 text-cyan-400" />
+                  <span>LOCATION: PRAGUE, CZ</span>
+                </div>
+                <div className="pt-3 border-t border-zinc-800 text-zinc-600">
+                  Response time: ~24h on business days
+                </div>
+              </div>
+            </div>
 
             {/* Social Links */}
-            <div>
-              <h4 className="font-semibold mb-4">Follow & Connect</h4>
-              <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                  <Button
-                    key={social.label}
-                    variant="outline"
-                    size="sm"
-                    className="p-2 hover:scale-110 transition-transform duration-300"
-                    onClick={() => window.open(social.url, "_blank")}
-                  >
-                    <social.icon className="w-4 h-4" />
-                  </Button>
-                ))}
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div className="text-xs text-zinc-500 font-mono">
+                  social@links:~$
+                </div>
+              </div>
+
+              <div className="p-6 font-mono text-xs">
+                <div className="text-zinc-500 mb-4">
+                  <span className="text-emerald-400">$</span> connect --social
+                </div>
+                <div className="flex gap-3">
+                  {socialLinks.map((social) => (
+                    <button
+                      key={social.label}
+                      className="p-3 bg-zinc-900 border border-zinc-800 hover:border-cyan-500/50 transition-all group"
+                      onClick={() => window.open(social.url, "_blank")}
+                    >
+                      <social.icon className="w-4 h-4 text-zinc-400 group-hover:text-cyan-400 transition-colors" />
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-2 animate-slide-up">
-            <Card className="border-0 shadow-xl bg-card/50 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <MessageSquare className="w-5 h-5" />
-                  Send a Message
-                </CardTitle>
-                <p className="text-muted-foreground">
-                  Fill out the form below and I&apos;ll get back to you as soon
-                  as possible.
-                </p>
-              </CardHeader>
-              <CardContent>
+          {/* Right Side - Contact Form */}
+          <div className="lg:col-span-2">
+            <div className="terminal-window">
+              <div className="terminal-header">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
+                </div>
+                <div className="text-xs text-zinc-500 font-mono">
+                  message@form:~$
+                </div>
+              </div>
+
+              <div className="p-6">
+                <div className="font-mono text-sm text-zinc-500 mb-6">
+                  <span className="text-emerald-400">$</span> send_message --interactive
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Inquiry Type Selection */}
+                  {/* Inquiry Type */}
                   <div>
-                    <Label className="text-sm font-medium mb-3 block">
-                      What&apos;s this about?
+                    <Label className="text-xs font-mono text-cyan-400 mb-3 block">
+                      SELECT_INQUIRY_TYPE:
                     </Label>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-2 gap-2">
                       {inquiryTypes.map((type) => (
                         <button
                           key={type.value}
@@ -298,18 +283,13 @@ export function ContactSection() {
                               inquiryType: type.value,
                             }))
                           }
-                          className={`p-3 rounded-lg border text-left transition-all duration-300 hover:shadow-md ${
+                          className={`p-3 border font-mono text-xs transition-all ${
                             formData.inquiryType === type.value
-                              ? "border-blue-500 bg-blue-50/50 dark:bg-blue-950/20"
-                              : "border-border hover:border-blue-300"
+                              ? "border-cyan-500 bg-cyan-500/10 text-cyan-400"
+                              : "border-zinc-800 bg-zinc-900 text-zinc-500 hover:border-zinc-700"
                           }`}
                         >
-                          <div className="font-medium text-sm">
-                            {type.label}
-                          </div>
-                          <div className="text-xs text-muted-foreground mt-1">
-                            {type.description}
-                          </div>
+                          {type.label}
                         </button>
                       ))}
                     </div>
@@ -318,19 +298,23 @@ export function ContactSection() {
                   {/* Form Fields */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name">Full Name *</Label>
+                      <Label htmlFor="name" className="text-xs font-mono text-zinc-400">
+                        NAME:
+                      </Label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        placeholder="Your full name"
-                        className="mt-1"
+                        placeholder="your_name"
+                        className="mt-1 bg-zinc-900 border-zinc-800 text-white font-mono text-sm focus:border-cyan-500"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
+                      <Label htmlFor="email" className="text-xs font-mono text-zinc-400">
+                        EMAIL:
+                      </Label>
                       <Input
                         id="email"
                         name="email"
@@ -339,64 +323,66 @@ export function ContactSection() {
                         onChange={handleInputChange}
                         required
                         placeholder="your@email.com"
-                        className="mt-1"
+                        className="mt-1 bg-zinc-900 border-zinc-800 text-white font-mono text-sm focus:border-cyan-500"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="subject">Subject *</Label>
+                    <Label htmlFor="subject" className="text-xs font-mono text-zinc-400">
+                      SUBJECT:
+                    </Label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
                       required
-                      placeholder="Brief subject line"
-                      className="mt-1"
+                      placeholder="brief_subject_line"
+                      className="mt-1 bg-zinc-900 border-zinc-800 text-white font-mono text-sm focus:border-cyan-500"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="message">Message *</Label>
+                    <Label htmlFor="message" className="text-xs font-mono text-zinc-400">
+                      MESSAGE:
+                    </Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
                       required
-                      placeholder="Tell me more about what you'd like to discuss..."
+                      placeholder="your_message_here..."
                       rows={6}
-                      className="mt-1 resize-none"
+                      className="mt-1 resize-none bg-zinc-900 border-zinc-800 text-white font-mono text-sm focus:border-cyan-500"
                     />
                   </div>
 
                   {/* Status Messages */}
                   {submitStatus === "success" && (
-                    <div className="flex items-center gap-2 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
-                      <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
+                    <div className="flex items-center gap-2 p-4 bg-emerald-500/10 border border-emerald-500/50 font-mono text-xs">
+                      <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0" />
                       <div>
-                        <p className="text-green-800 dark:text-green-200 font-medium">
-                          Message sent successfully!
+                        <p className="text-emerald-400 font-bold">
+                          [SUCCESS] MESSAGE_SENT
                         </p>
-                        <p className="text-green-700 dark:text-green-300 text-sm">
-                          Thank you for reaching out. I&apos;ll get back to you
-                          within 24 hours.
+                        <p className="text-emerald-600 text-xs">
+                          Response expected within 24h
                         </p>
                       </div>
                     </div>
                   )}
 
                   {submitStatus === "error" && (
-                    <div className="flex items-center gap-2 p-4 bg-red-50 dark:bg-red-950/20 border border-red-200 dark:border-red-800 rounded-lg">
-                      <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
+                    <div className="flex items-center gap-2 p-4 bg-red-500/10 border border-red-500/50 font-mono text-xs">
+                      <AlertCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
                       <div>
-                        <p className="text-red-800 dark:text-red-200 font-medium">
-                          Failed to send message
+                        <p className="text-red-400 font-bold">
+                          [ERROR] TRANSMISSION_FAILED
                         </p>
-                        <p className="text-red-700 dark:text-red-300 text-sm">
-                          {errorMessage ||
-                            "Please try again or contact me directly via email."}
+                        <p className="text-red-600 text-xs">
+                          {errorMessage || "Try direct email instead"}
                         </p>
                       </div>
                     </div>
@@ -406,42 +392,40 @@ export function ContactSection() {
                     type="submit"
                     size="lg"
                     disabled={isSubmitting || submitStatus === "success"}
-                    className="w-full gradient-bg text-white hover:opacity-90 transition-all duration-300 disabled:opacity-50"
+                    className="w-full bg-cyan-500 hover:bg-cyan-400 text-black font-bold font-mono disabled:opacity-50 disabled:cursor-not-allowed group"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                        Sending Message...
+                        TRANSMITTING...
                       </>
                     ) : submitStatus === "success" ? (
                       <>
                         <CheckCircle className="w-4 h-4 mr-2" />
-                        Message Sent
+                        MESSAGE_SENT
                       </>
                     ) : (
                       <>
-                        Send Message
-                        <Send className="ml-2 w-4 h-4" />
+                        <Terminal className="w-4 h-4 mr-2" />
+                        SEND_MESSAGE
+                        <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </>
                     )}
                   </Button>
 
-                  <p className="text-xs text-muted-foreground text-center">
-                    By submitting this form, you agree to receive email
-                    communications from Pavel Dovhomilja. Your information will
-                    never be shared with third parties.
+                  <p className="text-xs text-zinc-600 text-center font-mono">
+                    [DATA_PROTECTED] Your information will never be shared
                   </p>
                 </form>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="mt-20 pt-8 border-t border-border/50 text-center animate-fade-in">
-          <p className="text-muted-foreground">
-            © 2024 Pavel Dovhomilja. Building the future of AI-powered business
-            automation.
+        <div className="mt-20 pt-8 border-t border-zinc-800 text-center">
+          <p className="text-zinc-600 font-mono text-xs">
+            © 2024 PAVEL_DOVHOMILJA // BUILDING_AI_FUTURE
           </p>
         </div>
       </div>
