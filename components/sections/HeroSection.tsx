@@ -2,13 +2,9 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   Terminal,
   Code2,
-  Database,
-  Cpu,
   ChevronRight,
-  GitBranch,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -151,25 +147,25 @@ export function HeroSection() {
                   </div>
                   <div className="pl-4 text-zinc-400 space-y-1">
                     <div className="flex gap-2">
-                      <span className="text-cyan-400">"name":</span>
+                      <span className="text-cyan-400">&quot;name&quot;:</span>
                       <span className="text-emerald-400">
-                        "Pavel Dovhomilja"
+                        &quot;Pavel Dovhomilja&quot;
                       </span>
                     </div>
                     <div className="flex gap-2">
-                      <span className="text-cyan-400">"role":</span>
+                      <span className="text-cyan-400">&quot;role&quot;:</span>
                       <span className="text-emerald-400">
-                        "CTO | CO-FOUNDER"
+                        &quot;CTO | CO-FOUNDER&quot;
                       </span>
                     </div>
                     <div className="flex gap-2">
-                      <span className="text-cyan-400">"company":</span>
-                      <span className="text-emerald-400">"EndorphinIT"</span>
+                      <span className="text-cyan-400">&quot;company&quot;:</span>
+                      <span className="text-emerald-400">&quot;EndorphinIT&quot;</span>
                     </div>
                     <div className="flex gap-2">
-                      <span className="text-cyan-400">"status":</span>
+                      <span className="text-cyan-400">&quot;status&quot;:</span>
                       <span className="text-emerald-400">
-                        "Building Future"
+                        &quot;Building Future&quot;
                       </span>
                     </div>
                   </div>

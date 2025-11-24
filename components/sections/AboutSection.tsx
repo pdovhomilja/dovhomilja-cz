@@ -1,6 +1,6 @@
 "use client";
 
-import { Terminal, ChevronRight, Check } from "lucide-react";
+import { ChevronRight, Check } from "lucide-react";
 
 export function AboutSection() {
   const expertise = [

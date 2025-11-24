@@ -2,12 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import {
-  ArrowRight,
   Building2,
   Bot,
   Activity,
   Server,
-  Users,
   TrendingUp,
   Shield,
   Zap,

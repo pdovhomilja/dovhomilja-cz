@@ -9,7 +9,6 @@ import {
   Mail,
   Linkedin,
   Calendar,
-  Send,
   CheckCircle,
   AlertCircle,
   Loader2,
